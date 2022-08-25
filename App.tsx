@@ -1,11 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SuggaaSelectButton from './src/SuggaaSelectButton';
 // import SuggaaSelectButton from './src/SuggaaSelectButtontytyt';
-
-type Gender = "Male" | "Female" | "I perfer not to say";
-
 
 export default function App() {
 

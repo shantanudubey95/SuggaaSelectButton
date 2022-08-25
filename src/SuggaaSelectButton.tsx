@@ -1,13 +1,32 @@
-import { Text, View , Image} from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, Pressable, Image } from 'react-native';
+import tw from 'twrnc';
 
-const SuggaaSelectButton = () => {
+type props = {
+  title: string;
+  isActive: boolean;
+  onPress: (title: string) => void;
+};
+
+export default function SuggaCheckBox({ title, isActive, onPress }: props) {
   return (
-    <View style={{ paddingVertical: 9, paddingHorizontal: 31, backgroundColor:"green", alignItems:"center", justifyContent:"center", flexDirection:"row", borderRadius: 5}}>
-        <Text style={{fontSize: 20, color:"white", fontWeight: "bold"}}>Him</Text>
-        <Image style={{  position:"absolute", top: 4, right: 4}} source={require("../assets/Tick.png")}/>
-    </View>
-  )
+    <>
+    
+    
+    <Pressable 
+    onPress={() => onPress(title)}
+    style={tw`py-2.25 px-7.75 bg-[${
+        isActive ? "#04825C" : "#fff"
+      }] border-2 items-center justify-center flex-row rounded-md border-[${
+        !isActive ? "#AAB4B1" : "#04825C" 
+      }]`
+        }>
+        <Text style={tw`text-xl text-[${
+        isActive ? "#fff" : "#D3D6D5"
+      }] font-normal`
+         }>{title}</Text>
+        <Image style={tw`absolute top-1.5 right-1.5`} source={require("../assets/Tick.png")}/>
+    </Pressable>
+    </>
+  );
 }
-
-export default SuggaaSelectButton
